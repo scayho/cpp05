@@ -6,7 +6,7 @@
 /*   By: abelahce <abelahce@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 20:47:20 by abelahce          #+#    #+#             */
-/*   Updated: 2023/02/19 03:24:24 by abelahce         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:01:41 by abelahce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,18 @@ void Bureaucrat::GradeDown(int i)
     catch (const std::exception& e)
     {
        std::cerr << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::signForm(Form & fr)
+{
+    try
+    {
+        fr.beSigned(*this);
+        std::cout << name << " signed " << fr.GetName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << name << " couldn't signed " << fr.GetName() << " because he dont have the authority " << std::endl;
     }
 }
