@@ -6,7 +6,7 @@
 #    By: abelahce <abelahce@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/16 20:33:13 by abelahce          #+#    #+#              #
-#    Updated: 2023/02/21 02:33:54 by abelahce         ###   ########.fr        #
+#    Updated: 2023/02/21 02:40:30 by abelahce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,9 @@ CFLAGS= -Wall -Wextra -Werror -std=c++98
 
 NAME=bureau
 
-HDR=Bureaucrat.hpp Form.hpp
+HDR=Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 
-SRC := main.cpp	Bureaucrat.cpp Form.cpp
-
+SRC := main.cpp	Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp  RobotomyRequestForm.cpp  PresidentialPardonForm.cpp
 
 OBJ := $(SRC:.cpp=.o)
 
@@ -27,7 +26,6 @@ OBJ := $(SRC:.cpp=.o)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
-
 
 $(NAME):$(OBJ)
 	$(CC) $(CFLAGS)  $(OBJ) -o $(NAME)

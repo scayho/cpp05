@@ -6,12 +6,27 @@
 /*   By: abelahce <abelahce@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 22:18:52 by abelahce          #+#    #+#             */
-/*   Updated: 2023/02/20 08:22:19 by abelahce         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:49:56 by abelahce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
+
+void     Form::boundtheGrade(const Bureaucrat& ber)
+{
+    try
+    {
+        if (this->GetGrade_Exec() < ber.getGrade())
+            throw Form::GradeTooHighException();
+        // if (i < 1)
+        //     throw Form::GradeTooLowException();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
 
 int     Form::boundtherange(const int i)
 {
