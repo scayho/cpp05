@@ -6,7 +6,7 @@
 /*   By: abelahce <abelahce@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 20:34:03 by abelahce          #+#    #+#             */
-/*   Updated: 2023/02/19 03:24:49 by abelahce         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:56:10 by abelahce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,27 @@ class Bureaucrat
         {
             public:
                 // const char *what() const _NOEXCEPT()
-                const char *what() const throw()
+                const char *what() const throw ()
                  {
+                    
                     return ("error message GradeTooLowException is called ");
                  }
         };
         class GradeTooHighException :  public std::exception
         {
             public:
-                const char *what() const throw()
+                const char *what() const _NOEXCEPT;
                  {
+                    try
+                    {
+                        int i = 0;
+                        if (i == 0)
+                            throw std::exception();
+                    }
+                    catch(const std::exception& e)
+                    {
+                        std::cerr << e.what() << '\n';
+                    }
                     return ("error message GradeTooHighException is called ");
                  }
         };
