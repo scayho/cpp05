@@ -6,7 +6,7 @@
 /*   By: abelahce <abelahce@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 20:34:03 by abelahce          #+#    #+#             */
-/*   Updated: 2023/02/22 14:04:18 by abelahce         ###   ########.fr       */
+/*   Updated: 2023/02/21 05:48:50 by abelahce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -35,7 +35,8 @@ class Bureaucrat
         void GradeUp(int i);
         void GradeDown(int i);
         Bureaucrat  &operator = (const Bureaucrat &s);
-        void signForm(Form & fr);
+        void signAForm(AForm & fr);
+        void executeForm(AForm const & form); // emplement
         class GradeTooLowException :  public std::exception
         {
             public:
@@ -55,5 +56,6 @@ class Bureaucrat
 
 };
 std::ostream & operator << (std::ostream & o, Bureaucrat const & rhs);
+
 
 #endif

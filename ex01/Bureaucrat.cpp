@@ -6,7 +6,7 @@
 /*   By: abelahce <abelahce@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 20:47:20 by abelahce          #+#    #+#             */
-/*   Updated: 2023/02/20 09:01:41 by abelahce         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:13:44 by abelahce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ Bureaucrat::Bureaucrat(std::string const &name, int i) : name(name)
     try 
     {
         if (i > 150)
-            throw Bureaucrat::GradeTooHighException();
-        if (i < 1)
             throw Bureaucrat::GradeTooLowException();
+        if (i < 1)
+            throw Bureaucrat::GradeTooHighException();
         grade = i;
     }
     catch (const std::exception& e)

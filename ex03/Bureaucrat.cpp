@@ -6,7 +6,7 @@
 /*   By: abelahce <abelahce@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 20:47:20 by abelahce          #+#    #+#             */
-/*   Updated: 2023/02/22 18:11:38 by abelahce         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:36:05 by abelahce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ Bureaucrat::Bureaucrat(std::string const &name, int i) : name(name)
     try 
     {
         if (i > 150)
-            throw Bureaucrat::GradeTooLowException();
-        if (i < 1)
             throw Bureaucrat::GradeTooHighException();
+        if (i < 1)
+            throw Bureaucrat::GradeTooLowException();
         grade = i;
     }
     catch (const std::exception& e)
@@ -88,5 +88,31 @@ void Bureaucrat::GradeDown(int i)
     catch (const std::exception& e)
     {
        std::cerr << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::signAForm(AForm & fr)
+{
+    try
+    {
+        fr.beSigned(*this);
+        std::cout << name << " signed " << fr.GetName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << name << " couldn't signed " << fr.GetName() << " because he dont have the authority " << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & form) // emplement
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.GetName() << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
     }
 }

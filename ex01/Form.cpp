@@ -6,7 +6,7 @@
 /*   By: abelahce <abelahce@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 22:18:52 by abelahce          #+#    #+#             */
-/*   Updated: 2023/02/21 10:49:56 by abelahce         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:14:52 by abelahce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ bool Form::GetSign() const
 
  int Form::GetGrade_Sign() const
 {
-    return ((int)(this->grade_sign));
+    return (this->grade_sign);
 }
 
  int Form::GetGrade_Exec() const
 {
-    return ((int)(this->grade_exec));
+    return (this->grade_exec);
 }
 
 void Form::beSigned(Bureaucrat &ber)
