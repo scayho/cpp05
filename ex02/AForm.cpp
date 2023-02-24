@@ -33,7 +33,7 @@ int     AForm::boundtherange(const int i) // modifie the function to be using th
 {
     try
     {
-        if (i > 1)
+        if (i > 150)
             throw AForm::GradeTooHighException();
         if (i < 1)
             throw AForm::GradeTooLowException();
